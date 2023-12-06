@@ -1,0 +1,15 @@
+  # - compiler:
+  #     spec: clang@17.0.0
+  #     paths:
+  #       cc: cc
+  #       cxx: CC
+  #       f77: ftn
+  #       fc: ftn
+  #     flags: {}
+  #     operating_system: rhel8
+  #     target: any
+  #     modules:
+  #     - PrgEnv-cray-amd/8.5.0
+  #     - cce/17.0.0
+  #     - libfabric
+  #     extra_rpaths: []

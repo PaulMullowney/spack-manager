@@ -84,6 +84,10 @@ machine_list = {
     "frontier": MachineData(
         lambda: os.environ["LMOD_SYSTEM_NAME"] == "frontier", "frontier.olcf.ornl.gov"
     ),
+    #dana
+    "dana": MachineData(
+        lambda: os.environ["HOSTNAME"] == "dana-gw.hpcrb.rdlabs.ext.hpe.com" or os.environ["HOSTNAME"] == "dana-login1" or os.environ["HOSTNAME"] == "dana-login2", "dana"
+    ),
     # ANL
     "arcticus": MachineData(lambda: is_jlse(socket.gethostname()), "arcticus.alcf.anl.gov"),
     "sunspot": MachineData(

@@ -1,0 +1,103 @@
+packages:
+  cray-mpich:
+    require: "@8.1.28"
+    buildable: false
+    externals:
+      - spec: "cray-mpich@8.1.28"
+        prefix: /opt/cray/pe/mpich/8.1.28/ofi/amd/5.0
+        modules:
+          - cray-mpich/8.1.28
+          - craype-network-ofi
+  rocprim:
+    require: "@6.0.0"
+    buildable: false
+    externals:
+      - spec: rocprim@6.0.0
+        prefix: /home/amd/rocm-6.0.0-12969/include
+        modules:
+          - rocm/6.0.0
+          - craype-accel-amd-gfx940
+  rocrand:
+    require: "@6.0.0"
+    buildable: false
+    externals:
+      - spec: rocrand@6.0.0
+        prefix: /home/amd/rocm-6.0.0-12969/include
+        modules:
+          - rocm/6.0.0
+          - craype-accel-amd-gfx940
+  rocthrust:
+    require: "@6.0.0"
+    buildable: false
+    externals:
+      - spec: rocthrust@6.0.0
+        prefix: /home/amd/rocm-6.0.0-12969/include
+        modules:
+          - rocm/6.0.0
+          - craype-accel-amd-gfx940
+  rocsparse:
+    require: "@6.0.0"
+    buildable: false
+    externals:
+      - spec: rocsparse@6.0.0
+        prefix: /home/amd/rocm-6.0.0-12969/include
+        modules:
+          - rocm/6.0.0
+          - craype-accel-amd-gfx940
+  hip:
+    require: "@6.0.0"
+    buildable: false
+    externals:
+      - spec: hip@6.0.0
+        prefix: /home/amd/rocm-6.0.0-12969
+        modules:
+          - rocm/6.0.0
+          - craype-accel-amd-gfx940
+  hsa-rocr-dev:
+    require: "@6.0.0"
+    buildable: false
+    externals:
+      - spec: hsa-rocr-dev@6.0.0
+        prefix: /home/amd/rocm-6.0.0-12969/include/hsa
+        modules:
+          - rocm/6.0.0
+          - craype-accel-amd-gfx940
+  llvm-amdgpu:
+    require: "@6.0.0"
+    buildable: false
+    externals:
+      - spec: llvm-amdgpu@6.0.0
+        prefix: /home/amd/rocm-6.0.0-12969/llvm
+        modules:
+          - rocm/6.0.0
+          - craype-accel-amd-gfx940
+  cmake:
+    require: "@3.24.2"
+    buildable: false
+    externals:
+      - spec: cmake@3.24.2
+        prefix: /home/users/pmullown/software/cmake-3.24.2
+  perl:
+    require: "@5.34.1"
+  amr-wind:
+    require: "~tests"
+  netlib-lapack:
+    require: "@3.11.0%gcc@10.3.0"
+  umpire:
+    require: "@6.0.0"
+  python:
+    require: "~ssl"
+  trilinos:
+    require:
+      - any_of: ["@13.4.0.2023.02.28", "@develop"]
+  nalu-wind:
+    variants: ~trilinos-solvers
+  libffi:
+    require: "@3.4.2"
+  all:
+    compiler: [gcc@10.3.0]
+    providers:
+      mpi: [cray-mpich@8.1.28]
+      blas: [netlib-lapack]
+      lapack: [netlib-lapack]
+    variants: build_type=Release amdgpu_target=gfx942
