@@ -11,7 +11,7 @@ compilers:
       target: x86_64
       modules:
       - PrgEnv-gnu-amd/8.5.0
-      - gcc-native/10.3.0
+      - gcc-native/10.3
       - libfabric
       environment: {}
       extra_rpaths:

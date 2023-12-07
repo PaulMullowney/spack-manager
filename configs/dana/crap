@@ -13,3 +13,6 @@
   #     - cce/17.0.0
   #     - libfabric
   #     extra_rpaths: []
++        modules:
++          - rocm/6.0.0
++          - craype-accel-amd-gfx940

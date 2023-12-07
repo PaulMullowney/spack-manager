@@ -14,63 +14,42 @@ packages:
     externals:
       - spec: rocprim@6.0.0
         prefix: /home/amd/rocm-6.0.0-12969/include
-        modules:
-          - rocm/6.0.0
-          - craype-accel-amd-gfx940
   rocrand:
     require: "@6.0.0"
     buildable: false
     externals:
       - spec: rocrand@6.0.0
         prefix: /home/amd/rocm-6.0.0-12969/include
-        modules:
-          - rocm/6.0.0
-          - craype-accel-amd-gfx940
   rocthrust:
     require: "@6.0.0"
     buildable: false
     externals:
       - spec: rocthrust@6.0.0
         prefix: /home/amd/rocm-6.0.0-12969/include
-        modules:
-          - rocm/6.0.0
-          - craype-accel-amd-gfx940
   rocsparse:
     require: "@6.0.0"
     buildable: false
     externals:
       - spec: rocsparse@6.0.0
         prefix: /home/amd/rocm-6.0.0-12969/include
-        modules:
-          - rocm/6.0.0
-          - craype-accel-amd-gfx940
   hip:
     require: "@6.0.0"
     buildable: false
     externals:
       - spec: hip@6.0.0
         prefix: /home/amd/rocm-6.0.0-12969
-        modules:
-          - rocm/6.0.0
-          - craype-accel-amd-gfx940
   hsa-rocr-dev:
     require: "@6.0.0"
     buildable: false
     externals:
       - spec: hsa-rocr-dev@6.0.0
-        prefix: /home/amd/rocm-6.0.0-12969/include/hsa
-        modules:
-          - rocm/6.0.0
-          - craype-accel-amd-gfx940
+        prefix: /home/amd/rocm-6.0.0-12969/include
   llvm-amdgpu:
     require: "@6.0.0"
     buildable: false
     externals:
       - spec: llvm-amdgpu@6.0.0
         prefix: /home/amd/rocm-6.0.0-12969/llvm
-        modules:
-          - rocm/6.0.0
-          - craype-accel-amd-gfx940
   cmake:
     require: "@3.24.2"
     buildable: false
@@ -95,7 +74,8 @@ packages:
   libffi:
     require: "@3.4.2"
   all:
-    compiler: [gcc@10.3.0]
+    compiler:
+      - gcc@10.3.0
     providers:
       mpi: [cray-mpich@8.1.28]
       blas: [netlib-lapack]

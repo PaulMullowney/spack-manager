@@ -86,7 +86,7 @@ machine_list = {
     ),
     #dana
     "dana": MachineData(
-        lambda: os.environ["HOSTNAME"] == "dana-gw.hpcrb.rdlabs.ext.hpe.com" or os.environ["HOSTNAME"] == "dana-login1" or os.environ["HOSTNAME"] == "dana-login2", "dana"
+        lambda: os.environ["HOSTNAME"] == "dana-gw.hpcrb.rdlabs.ext.hpe.com" or os.environ["HOSTNAMEFULL"].find("cm.americas.sgi.com")>=0, "dana"
     ),
     # ANL
     "arcticus": MachineData(lambda: is_jlse(socket.gethostname()), "arcticus.alcf.anl.gov"),
