@@ -20,6 +20,7 @@ class Hypre(bHypre):
     depends_on("umpire+rocm", when="+umpire+rocm")
     depends_on("umpire+cuda", when="+umpire+cuda")
     depends_on("rocprim", when="+rocm")
+    variant("gpu-profile", default=False, description="use nvtx (CUDA) or roctx (ROCm)")
 
     def distclean(self, spec, prefix):
         with working_dir("src"):
@@ -51,6 +52,9 @@ class Hypre(bHypre):
 
         if "+gpu-aware-mpi" in spec:
             options.append("--enable-gpu-aware-mpi")
+
+        if "+gpu-profile" in spec:
+            options.append("--enable-gpu-profiling")
 
         if "+rocblas" in spec:
             options.append("--enable-rocblas")

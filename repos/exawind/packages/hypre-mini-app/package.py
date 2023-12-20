@@ -35,12 +35,15 @@ class HypreMiniApp(CMakePackage, CudaPackage, ROCmPackage):
     variant("cublas", default=False,
             description="use cublas")
 
+    variant("gpu-profile", default=False, description="use nvtx (CUDA) or roctx (ROCm)")
+
     depends_on("mpi")
     depends_on("hypre+mpi@2.20.0:")
     depends_on("yaml-cpp@0.6.2:")
     depends_on("hypre+umpire", when="+umpire")
     depends_on("hypre+unified-memory", when="+unified-memory")
     depends_on("hypre+gpu-aware-mpi", when="+gpu-aware-mpi")
+    depends_on("hypre+gpu-profile", when="+gpu-profile")
     depends_on("hypre+rocblas", when="+rocblas")
     depends_on("hypre+cublas", when="+cublas")
     for arch in CudaPackage.cuda_arch_values:
