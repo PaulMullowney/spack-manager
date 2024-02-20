@@ -55,7 +55,7 @@ packages:
     buildable: false
     externals:
       - spec: cmake@3.24.2
-        prefix: /home/users/pmullown/software/cmake-3.24.2
+        prefix: /home/users/e63310/software/cmake-3.24.2
   perl:
     require: "@5.34.1"
   amr-wind:
