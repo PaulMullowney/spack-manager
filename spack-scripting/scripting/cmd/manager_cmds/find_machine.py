@@ -85,8 +85,12 @@ machine_list = {
         lambda: os.environ["LMOD_SYSTEM_NAME"] == "frontier", "frontier.olcf.ornl.gov"
     ),
     #dana
-    "dana": MachineData(
-        lambda: os.environ["HOSTNAME"] == "dana-gw.hpcrb.rdlabs.ext.hpe.com" or os.environ["HOSTNAMEFULL"].find("cm.americas.sgi.com")>=0, "dana"
+    #"dana": MachineData(
+    #    lambda: os.environ["HOSTNAME"] == "dana-gw.hpcrb.rdlabs.ext.hpe.com" or os.environ["HOSTNAMEFULL"].find("cm.americas.sgi.com")>=0, "dana"
+    #),
+    #tuolumne
+    "tuolumne": MachineData(
+        lambda: os.environ["HOSTNAME"] == "dana-gw.hpcrb.rdlabs.ext.hpe.com" or os.environ["HOSTNAME"].find("tuolumne-login")>=0, "tuolumne"
     ),
     # ANL
     "arcticus": MachineData(lambda: is_jlse(socket.gethostname()), "arcticus.alcf.anl.gov"),
