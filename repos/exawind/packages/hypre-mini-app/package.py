@@ -37,6 +37,10 @@ class HypreMiniApp(CMakePackage, CudaPackage, ROCmPackage):
 
     variant("gpu-profile", default=False, description="use nvtx (CUDA) or roctx (ROCm)")
 
+    variant("mempool", default=False, description="use hypre's native memory pool features")
+    depends_on("hypre+rocm+mempool", when="+rocm")
+    depends_on("hypre+cuda+mempool", when="+cuda")
+    
     depends_on("mpi")
     depends_on("hypre+mpi@2.20.0:")
     depends_on("yaml-cpp@0.6.2:")
