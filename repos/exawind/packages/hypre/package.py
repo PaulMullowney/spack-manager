@@ -21,7 +21,6 @@ class Hypre(bHypre):
     depends_on("umpire+cuda", when="+umpire+cuda")
     depends_on("rocprim", when="+rocm")
     variant("gpu-profile", default=False, description="use nvtx (CUDA) or roctx (ROCm)")
-    variant("mempool", default=False, description="use hypre's native memory pool features")
 
     def distclean(self, spec, prefix):
         with working_dir("src"):
@@ -66,8 +65,5 @@ class Hypre(bHypre):
         if "+umpire" in spec:
             if  (("+cuda" in spec or "+rocm" in spec) and "--enable-device-memory-pool" in options):
                 options.remove("--enable-device-memory-pool")
-
-        if "+mempool" in spec:
-            options.append("--enable-device-memory-pool")
 
         return options
