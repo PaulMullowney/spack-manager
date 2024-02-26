@@ -1,12 +1,12 @@
 packages:
   cray-mpich:
-    require: "@8.1.28"
+    require: "@8.1.29.34"
     buildable: false
     externals:
-      - spec: "cray-mpich@8.1.28"
-        prefix: /opt/cray/pe/mpich/8.1.28/ofi/amd/5.0
+      - spec: "cray-mpich@8.1.29.34"
+        prefix: /opt/cray/pe/mpich/8.1.29.34/ofi/amd/5.0
         modules:
-          - cray-mpich/8.1.28
+          - cray-mpich/8.1.29.34
           - craype-network-ofi
   rocprim:
     require: "@6.0.0"
@@ -77,7 +77,7 @@ packages:
     compiler:
       - gcc@10.3.0
     providers:
-      mpi: [cray-mpich@8.1.28]
+      mpi: [cray-mpich@8.1.29.34]
       blas: [netlib-lapack]
       lapack: [netlib-lapack]
     variants: build_type=Release amdgpu_target=gfx942
