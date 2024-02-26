@@ -53,9 +53,9 @@ class Hypre(bHypre):
         if "+gpu-aware-mpi" in spec:
             options.append("--enable-gpu-aware-mpi")
             if "+rocm" in spec:
-                os.environ["LIBS"] = "-lmpi_gtl_hsa"
                 for arch in ROCmPackage.amdgpu_targets:
                     if "+rocm amdgpu_target=%s" % arch in spec:
+                        os.environ["LIBS"] = "-lmpi_gtl_hsa"
                         os.environ["LDFLAGS"] = os.environ["PE_MPICH_GTL_DIR_amd_%s"%arch]
                   
         if "+gpu-profile" in spec:
